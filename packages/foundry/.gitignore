@@ -10,5 +10,4 @@ out/
 docs/
 
 # Dotenv file
-.env
 localhost.json
