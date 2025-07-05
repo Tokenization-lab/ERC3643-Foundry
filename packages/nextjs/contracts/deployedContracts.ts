@@ -4,6 +4,6616 @@
  */
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
-const deployedContracts = {} as const;
+const deployedContracts = {
+  31337: {
+    Identity: {
+      address: "0x700b6a60ce7eaaea56f065753d8dcb9653dbad35",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "initialManagementKey",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_isLibrary",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addClaim",
+          inputs: [
+            {
+              name: "_topic",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_scheme",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_issuer",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_signature",
+              type: "bytes",
+              internalType: "bytes",
+            },
+            {
+              name: "_data",
+              type: "bytes",
+              internalType: "bytes",
+            },
+            {
+              name: "_uri",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          outputs: [
+            {
+              name: "claimRequestId",
+              type: "bytes32",
+              internalType: "bytes32",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addKey",
+          inputs: [
+            {
+              name: "_key",
+              type: "bytes32",
+              internalType: "bytes32",
+            },
+            {
+              name: "_purpose",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_type",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "success",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "approve",
+          inputs: [
+            {
+              name: "_id",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_approve",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          outputs: [
+            {
+              name: "success",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "execute",
+          inputs: [
+            {
+              name: "_to",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_value",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_data",
+              type: "bytes",
+              internalType: "bytes",
+            },
+          ],
+          outputs: [
+            {
+              name: "executionId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "payable",
+        },
+        {
+          type: "function",
+          name: "getClaim",
+          inputs: [
+            {
+              name: "_claimId",
+              type: "bytes32",
+              internalType: "bytes32",
+            },
+          ],
+          outputs: [
+            {
+              name: "topic",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "scheme",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "issuer",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "signature",
+              type: "bytes",
+              internalType: "bytes",
+            },
+            {
+              name: "data",
+              type: "bytes",
+              internalType: "bytes",
+            },
+            {
+              name: "uri",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getClaimIdsByTopic",
+          inputs: [
+            {
+              name: "_topic",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "claimIds",
+              type: "bytes32[]",
+              internalType: "bytes32[]",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getKey",
+          inputs: [
+            {
+              name: "_key",
+              type: "bytes32",
+              internalType: "bytes32",
+            },
+          ],
+          outputs: [
+            {
+              name: "purposes",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+            {
+              name: "keyType",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "key",
+              type: "bytes32",
+              internalType: "bytes32",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getKeyPurposes",
+          inputs: [
+            {
+              name: "_key",
+              type: "bytes32",
+              internalType: "bytes32",
+            },
+          ],
+          outputs: [
+            {
+              name: "_purposes",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getKeysByPurpose",
+          inputs: [
+            {
+              name: "_purpose",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "keys",
+              type: "bytes32[]",
+              internalType: "bytes32[]",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getRecoveredAddress",
+          inputs: [
+            {
+              name: "sig",
+              type: "bytes",
+              internalType: "bytes",
+            },
+            {
+              name: "dataHash",
+              type: "bytes32",
+              internalType: "bytes32",
+            },
+          ],
+          outputs: [
+            {
+              name: "addr",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "pure",
+        },
+        {
+          type: "function",
+          name: "initialize",
+          inputs: [
+            {
+              name: "initialManagementKey",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "isClaimValid",
+          inputs: [
+            {
+              name: "_identity",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+            {
+              name: "claimTopic",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "sig",
+              type: "bytes",
+              internalType: "bytes",
+            },
+            {
+              name: "data",
+              type: "bytes",
+              internalType: "bytes",
+            },
+          ],
+          outputs: [
+            {
+              name: "claimValid",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "keyHasPurpose",
+          inputs: [
+            {
+              name: "_key",
+              type: "bytes32",
+              internalType: "bytes32",
+            },
+            {
+              name: "_purpose",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "result",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "removeClaim",
+          inputs: [
+            {
+              name: "_claimId",
+              type: "bytes32",
+              internalType: "bytes32",
+            },
+          ],
+          outputs: [
+            {
+              name: "success",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "removeKey",
+          inputs: [
+            {
+              name: "_key",
+              type: "bytes32",
+              internalType: "bytes32",
+            },
+            {
+              name: "_purpose",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "success",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "version",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          stateMutability: "pure",
+        },
+        {
+          type: "event",
+          name: "Approved",
+          inputs: [
+            {
+              name: "executionId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "approved",
+              type: "bool",
+              indexed: false,
+              internalType: "bool",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "ClaimAdded",
+          inputs: [
+            {
+              name: "claimId",
+              type: "bytes32",
+              indexed: true,
+              internalType: "bytes32",
+            },
+            {
+              name: "topic",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "scheme",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+            {
+              name: "issuer",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "signature",
+              type: "bytes",
+              indexed: false,
+              internalType: "bytes",
+            },
+            {
+              name: "data",
+              type: "bytes",
+              indexed: false,
+              internalType: "bytes",
+            },
+            {
+              name: "uri",
+              type: "string",
+              indexed: false,
+              internalType: "string",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "ClaimChanged",
+          inputs: [
+            {
+              name: "claimId",
+              type: "bytes32",
+              indexed: true,
+              internalType: "bytes32",
+            },
+            {
+              name: "topic",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "scheme",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+            {
+              name: "issuer",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "signature",
+              type: "bytes",
+              indexed: false,
+              internalType: "bytes",
+            },
+            {
+              name: "data",
+              type: "bytes",
+              indexed: false,
+              internalType: "bytes",
+            },
+            {
+              name: "uri",
+              type: "string",
+              indexed: false,
+              internalType: "string",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "ClaimRemoved",
+          inputs: [
+            {
+              name: "claimId",
+              type: "bytes32",
+              indexed: true,
+              internalType: "bytes32",
+            },
+            {
+              name: "topic",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "scheme",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+            {
+              name: "issuer",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "signature",
+              type: "bytes",
+              indexed: false,
+              internalType: "bytes",
+            },
+            {
+              name: "data",
+              type: "bytes",
+              indexed: false,
+              internalType: "bytes",
+            },
+            {
+              name: "uri",
+              type: "string",
+              indexed: false,
+              internalType: "string",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "DummyEvent",
+          inputs: [
+            {
+              name: "message",
+              type: "string",
+              indexed: false,
+              internalType: "string",
+            },
+            {
+              name: "value",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Executed",
+          inputs: [
+            {
+              name: "executionId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "to",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "value",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "data",
+              type: "bytes",
+              indexed: false,
+              internalType: "bytes",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "ExecutionFailed",
+          inputs: [
+            {
+              name: "executionId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "to",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "value",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "data",
+              type: "bytes",
+              indexed: false,
+              internalType: "bytes",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "ExecutionRequested",
+          inputs: [
+            {
+              name: "executionId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "to",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "value",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "data",
+              type: "bytes",
+              indexed: false,
+              internalType: "bytes",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "KeyAdded",
+          inputs: [
+            {
+              name: "key",
+              type: "bytes32",
+              indexed: true,
+              internalType: "bytes32",
+            },
+            {
+              name: "purpose",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "keyType",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "KeyRemoved",
+          inputs: [
+            {
+              name: "key",
+              type: "bytes32",
+              indexed: true,
+              internalType: "bytes32",
+            },
+            {
+              name: "purpose",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "keyType",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+    ImplementationAuthority: {
+      address: "0xa15bb66138824a1c7167f5e85b957d04dd34e468",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "implementation",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "getImplementation",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "owner",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "renounceOwnership",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "transferOwnership",
+          inputs: [
+            {
+              name: "newOwner",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "updateImplementation",
+          inputs: [
+            {
+              name: "_newImplementation",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "OwnershipTransferred",
+          inputs: [
+            {
+              name: "previousOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "newOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "UpdatedImplementation",
+          inputs: [
+            {
+              name: "newAddress",
+              type: "address",
+              indexed: false,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+    IdFactory: {
+      address: "0xb19b36b1456e65e3a6d514d3f715f204bd59f431",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "implementationAuthority",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addTokenFactory",
+          inputs: [
+            {
+              name: "_factory",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "createIdentity",
+          inputs: [
+            {
+              name: "_wallet",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_salt",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "createIdentityWithManagementKeys",
+          inputs: [
+            {
+              name: "_wallet",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_salt",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "_managementKeys",
+              type: "bytes32[]",
+              internalType: "bytes32[]",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "createTokenIdentity",
+          inputs: [
+            {
+              name: "_token",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_tokenOwner",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_salt",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "getIdentity",
+          inputs: [
+            {
+              name: "_wallet",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getToken",
+          inputs: [
+            {
+              name: "_identity",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getWallets",
+          inputs: [
+            {
+              name: "_identity",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "address[]",
+              internalType: "address[]",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "implementationAuthority",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "isSaltTaken",
+          inputs: [
+            {
+              name: "_salt",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "isTokenFactory",
+          inputs: [
+            {
+              name: "_factory",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "linkWallet",
+          inputs: [
+            {
+              name: "_newWallet",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "owner",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "removeTokenFactory",
+          inputs: [
+            {
+              name: "_factory",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "renounceOwnership",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "transferOwnership",
+          inputs: [
+            {
+              name: "newOwner",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "unlinkWallet",
+          inputs: [
+            {
+              name: "_oldWallet",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "Deployed",
+          inputs: [
+            {
+              name: "_addr",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "OwnershipTransferred",
+          inputs: [
+            {
+              name: "previousOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "newOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "TokenFactoryAdded",
+          inputs: [
+            {
+              name: "factory",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "TokenFactoryRemoved",
+          inputs: [
+            {
+              name: "factory",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "TokenLinked",
+          inputs: [
+            {
+              name: "token",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "identity",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "WalletLinked",
+          inputs: [
+            {
+              name: "wallet",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "identity",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "WalletUnlinked",
+          inputs: [
+            {
+              name: "wallet",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "identity",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+    Token: {
+      address: "0x8ce361602b935680e8dec218b820ff5056beb7af",
+      abi: [
+        {
+          type: "function",
+          name: "addAgent",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "allowance",
+          inputs: [
+            {
+              name: "_owner",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_spender",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "approve",
+          inputs: [
+            {
+              name: "_spender",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "balanceOf",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "batchBurn",
+          inputs: [
+            {
+              name: "_userAddresses",
+              type: "address[]",
+              internalType: "address[]",
+            },
+            {
+              name: "_amounts",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "batchForcedTransfer",
+          inputs: [
+            {
+              name: "_fromList",
+              type: "address[]",
+              internalType: "address[]",
+            },
+            {
+              name: "_toList",
+              type: "address[]",
+              internalType: "address[]",
+            },
+            {
+              name: "_amounts",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "batchFreezePartialTokens",
+          inputs: [
+            {
+              name: "_userAddresses",
+              type: "address[]",
+              internalType: "address[]",
+            },
+            {
+              name: "_amounts",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "batchMint",
+          inputs: [
+            {
+              name: "_toList",
+              type: "address[]",
+              internalType: "address[]",
+            },
+            {
+              name: "_amounts",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "batchSetAddressFrozen",
+          inputs: [
+            {
+              name: "_userAddresses",
+              type: "address[]",
+              internalType: "address[]",
+            },
+            {
+              name: "_freeze",
+              type: "bool[]",
+              internalType: "bool[]",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "batchTransfer",
+          inputs: [
+            {
+              name: "_toList",
+              type: "address[]",
+              internalType: "address[]",
+            },
+            {
+              name: "_amounts",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "batchUnfreezePartialTokens",
+          inputs: [
+            {
+              name: "_userAddresses",
+              type: "address[]",
+              internalType: "address[]",
+            },
+            {
+              name: "_amounts",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "burn",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "compliance",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "contract IModularCompliance",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "decimals",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint8",
+              internalType: "uint8",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "decreaseAllowance",
+          inputs: [
+            {
+              name: "_spender",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_subtractedValue",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "forcedTransfer",
+          inputs: [
+            {
+              name: "_from",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_to",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "freezePartialTokens",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "getFrozenTokens",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "identityRegistry",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "contract IIdentityRegistry",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "increaseAllowance",
+          inputs: [
+            {
+              name: "_spender",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_addedValue",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "init",
+          inputs: [
+            {
+              name: "_identityRegistry",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_compliance",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_name",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "_symbol",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "_decimals",
+              type: "uint8",
+              internalType: "uint8",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "isAgent",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "isFrozen",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "mint",
+          inputs: [
+            {
+              name: "_to",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "name",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "onchainID",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "owner",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "pause",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "paused",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "recoveryAddress",
+          inputs: [
+            {
+              name: "_lostWallet",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_newWallet",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_investorOnchainID",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "removeAgent",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "renounceOwnership",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setAddressFrozen",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_freeze",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setCompliance",
+          inputs: [
+            {
+              name: "_compliance",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setIdentityRegistry",
+          inputs: [
+            {
+              name: "_identityRegistry",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setName",
+          inputs: [
+            {
+              name: "_name",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setOnchainID",
+          inputs: [
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setSymbol",
+          inputs: [
+            {
+              name: "_symbol",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "symbol",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "totalSupply",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "transfer",
+          inputs: [
+            {
+              name: "_to",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "transferFrom",
+          inputs: [
+            {
+              name: "_from",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_to",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "transferOwnership",
+          inputs: [
+            {
+              name: "newOwner",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "unfreezePartialTokens",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "unpause",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "version",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          stateMutability: "pure",
+        },
+        {
+          type: "event",
+          name: "AddressFrozen",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "_isFrozen",
+              type: "bool",
+              indexed: true,
+              internalType: "bool",
+            },
+            {
+              name: "_owner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "AgentAdded",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "AgentRemoved",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Approval",
+          inputs: [
+            {
+              name: "owner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "spender",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "value",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "ComplianceAdded",
+          inputs: [
+            {
+              name: "_compliance",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "IdentityRegistryAdded",
+          inputs: [
+            {
+              name: "_identityRegistry",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Initialized",
+          inputs: [
+            {
+              name: "version",
+              type: "uint8",
+              indexed: false,
+              internalType: "uint8",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "OwnershipTransferred",
+          inputs: [
+            {
+              name: "previousOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "newOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Paused",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              indexed: false,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "RecoverySuccess",
+          inputs: [
+            {
+              name: "_lostWallet",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "_newWallet",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "_investorOnchainID",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "TokensFrozen",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "_amount",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "TokensUnfrozen",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "_amount",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Transfer",
+          inputs: [
+            {
+              name: "from",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "to",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "value",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Unpaused",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              indexed: false,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "UpdatedTokenInformation",
+          inputs: [
+            {
+              name: "_newName",
+              type: "string",
+              indexed: true,
+              internalType: "string",
+            },
+            {
+              name: "_newSymbol",
+              type: "string",
+              indexed: true,
+              internalType: "string",
+            },
+            {
+              name: "_newDecimals",
+              type: "uint8",
+              indexed: false,
+              internalType: "uint8",
+            },
+            {
+              name: "_newVersion",
+              type: "string",
+              indexed: false,
+              internalType: "string",
+            },
+            {
+              name: "_newOnchainID",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+    ClaimTopicsRegistry: {
+      address: "0xe1aa25618fa0c7a1cfdab5d6b456af611873b629",
+      abi: [
+        {
+          type: "function",
+          name: "addClaimTopic",
+          inputs: [
+            {
+              name: "_claimTopic",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "getClaimTopics",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "init",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "owner",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "removeClaimTopic",
+          inputs: [
+            {
+              name: "_claimTopic",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "renounceOwnership",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "transferOwnership",
+          inputs: [
+            {
+              name: "newOwner",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "ClaimTopicAdded",
+          inputs: [
+            {
+              name: "claimTopic",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "ClaimTopicRemoved",
+          inputs: [
+            {
+              name: "claimTopic",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Initialized",
+          inputs: [
+            {
+              name: "version",
+              type: "uint8",
+              indexed: false,
+              internalType: "uint8",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "OwnershipTransferred",
+          inputs: [
+            {
+              name: "previousOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "newOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+    IdentityRegistry: {
+      address: "0xe1da8919f262ee86f9be05059c9280142cf23f48",
+      abi: [
+        {
+          type: "function",
+          name: "addAgent",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "batchRegisterIdentity",
+          inputs: [
+            {
+              name: "_userAddresses",
+              type: "address[]",
+              internalType: "address[]",
+            },
+            {
+              name: "_identities",
+              type: "address[]",
+              internalType: "contract IIdentity[]",
+            },
+            {
+              name: "_countries",
+              type: "uint16[]",
+              internalType: "uint16[]",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "contains",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "deleteIdentity",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "identity",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "identityStorage",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "contract IIdentityRegistryStorage",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "init",
+          inputs: [
+            {
+              name: "_trustedIssuersRegistry",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_claimTopicsRegistry",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_identityStorage",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "investorCountry",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "uint16",
+              internalType: "uint16",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "isAgent",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "isVerified",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "issuersRegistry",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "contract ITrustedIssuersRegistry",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "owner",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "registerIdentity",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_identity",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+            {
+              name: "_country",
+              type: "uint16",
+              internalType: "uint16",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "removeAgent",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "renounceOwnership",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setClaimTopicsRegistry",
+          inputs: [
+            {
+              name: "_claimTopicsRegistry",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setIdentityRegistryStorage",
+          inputs: [
+            {
+              name: "_identityRegistryStorage",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setTrustedIssuersRegistry",
+          inputs: [
+            {
+              name: "_trustedIssuersRegistry",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "topicsRegistry",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "contract IClaimTopicsRegistry",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "transferOwnership",
+          inputs: [
+            {
+              name: "newOwner",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "updateCountry",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_country",
+              type: "uint16",
+              internalType: "uint16",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "updateIdentity",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_identity",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "AgentAdded",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "AgentRemoved",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "ClaimTopicsRegistrySet",
+          inputs: [
+            {
+              name: "claimTopicsRegistry",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "CountryUpdated",
+          inputs: [
+            {
+              name: "investorAddress",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "country",
+              type: "uint16",
+              indexed: true,
+              internalType: "uint16",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "IdentityRegistered",
+          inputs: [
+            {
+              name: "investorAddress",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "identity",
+              type: "address",
+              indexed: true,
+              internalType: "contract IIdentity",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "IdentityRemoved",
+          inputs: [
+            {
+              name: "investorAddress",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "identity",
+              type: "address",
+              indexed: true,
+              internalType: "contract IIdentity",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "IdentityStorageSet",
+          inputs: [
+            {
+              name: "identityStorage",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "IdentityUpdated",
+          inputs: [
+            {
+              name: "oldIdentity",
+              type: "address",
+              indexed: true,
+              internalType: "contract IIdentity",
+            },
+            {
+              name: "newIdentity",
+              type: "address",
+              indexed: true,
+              internalType: "contract IIdentity",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Initialized",
+          inputs: [
+            {
+              name: "version",
+              type: "uint8",
+              indexed: false,
+              internalType: "uint8",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "OwnershipTransferred",
+          inputs: [
+            {
+              name: "previousOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "newOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "TrustedIssuersRegistrySet",
+          inputs: [
+            {
+              name: "trustedIssuersRegistry",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+    IdentityRegistryStorage: {
+      address: "0x0c8e79f3534b00d9a3d4a856b665bf4ebc22f2ba",
+      abi: [
+        {
+          type: "function",
+          name: "addAgent",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addIdentityToStorage",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_identity",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+            {
+              name: "_country",
+              type: "uint16",
+              internalType: "uint16",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "bindIdentityRegistry",
+          inputs: [
+            {
+              name: "_identityRegistry",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "init",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "isAgent",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "linkedIdentityRegistries",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address[]",
+              internalType: "address[]",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "modifyStoredIdentity",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_identity",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "modifyStoredInvestorCountry",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_country",
+              type: "uint16",
+              internalType: "uint16",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "owner",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "removeAgent",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "removeIdentityFromStorage",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "renounceOwnership",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "storedIdentity",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "storedInvestorCountry",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "uint16",
+              internalType: "uint16",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "transferOwnership",
+          inputs: [
+            {
+              name: "newOwner",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "unbindIdentityRegistry",
+          inputs: [
+            {
+              name: "_identityRegistry",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "AgentAdded",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "AgentRemoved",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "CountryModified",
+          inputs: [
+            {
+              name: "investorAddress",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "country",
+              type: "uint16",
+              indexed: true,
+              internalType: "uint16",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "IdentityModified",
+          inputs: [
+            {
+              name: "oldIdentity",
+              type: "address",
+              indexed: true,
+              internalType: "contract IIdentity",
+            },
+            {
+              name: "newIdentity",
+              type: "address",
+              indexed: true,
+              internalType: "contract IIdentity",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "IdentityRegistryBound",
+          inputs: [
+            {
+              name: "identityRegistry",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "IdentityRegistryUnbound",
+          inputs: [
+            {
+              name: "identityRegistry",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "IdentityStored",
+          inputs: [
+            {
+              name: "investorAddress",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "identity",
+              type: "address",
+              indexed: true,
+              internalType: "contract IIdentity",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "IdentityUnstored",
+          inputs: [
+            {
+              name: "investorAddress",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "identity",
+              type: "address",
+              indexed: true,
+              internalType: "contract IIdentity",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Initialized",
+          inputs: [
+            {
+              name: "version",
+              type: "uint8",
+              indexed: false,
+              internalType: "uint8",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "OwnershipTransferred",
+          inputs: [
+            {
+              name: "previousOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "newOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+    TrustedIssuersRegistry: {
+      address: "0xed1db453c3156ff3155a97ad217b3087d5dc5f6e",
+      abi: [
+        {
+          type: "function",
+          name: "addTrustedIssuer",
+          inputs: [
+            {
+              name: "_trustedIssuer",
+              type: "address",
+              internalType: "contract IClaimIssuer",
+            },
+            {
+              name: "_claimTopics",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "getTrustedIssuerClaimTopics",
+          inputs: [
+            {
+              name: "_trustedIssuer",
+              type: "address",
+              internalType: "contract IClaimIssuer",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getTrustedIssuers",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address[]",
+              internalType: "contract IClaimIssuer[]",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getTrustedIssuersForClaimTopic",
+          inputs: [
+            {
+              name: "claimTopic",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "address[]",
+              internalType: "contract IClaimIssuer[]",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "hasClaimTopic",
+          inputs: [
+            {
+              name: "_issuer",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_claimTopic",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "init",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "isTrustedIssuer",
+          inputs: [
+            {
+              name: "_issuer",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "owner",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "removeTrustedIssuer",
+          inputs: [
+            {
+              name: "_trustedIssuer",
+              type: "address",
+              internalType: "contract IClaimIssuer",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "renounceOwnership",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "transferOwnership",
+          inputs: [
+            {
+              name: "newOwner",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "updateIssuerClaimTopics",
+          inputs: [
+            {
+              name: "_trustedIssuer",
+              type: "address",
+              internalType: "contract IClaimIssuer",
+            },
+            {
+              name: "_claimTopics",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "ClaimTopicsUpdated",
+          inputs: [
+            {
+              name: "trustedIssuer",
+              type: "address",
+              indexed: true,
+              internalType: "contract IClaimIssuer",
+            },
+            {
+              name: "claimTopics",
+              type: "uint256[]",
+              indexed: false,
+              internalType: "uint256[]",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Initialized",
+          inputs: [
+            {
+              name: "version",
+              type: "uint8",
+              indexed: false,
+              internalType: "uint8",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "OwnershipTransferred",
+          inputs: [
+            {
+              name: "previousOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "newOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "TrustedIssuerAdded",
+          inputs: [
+            {
+              name: "trustedIssuer",
+              type: "address",
+              indexed: true,
+              internalType: "contract IClaimIssuer",
+            },
+            {
+              name: "claimTopics",
+              type: "uint256[]",
+              indexed: false,
+              internalType: "uint256[]",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "TrustedIssuerRemoved",
+          inputs: [
+            {
+              name: "trustedIssuer",
+              type: "address",
+              indexed: true,
+              internalType: "contract IClaimIssuer",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+    ModularCompliance: {
+      address: "0xf7cd8fa9b94db2aa972023b379c7f72c65e4de9d",
+      abi: [
+        {
+          type: "function",
+          name: "addModule",
+          inputs: [
+            {
+              name: "_module",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "bindToken",
+          inputs: [
+            {
+              name: "_token",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callModuleFunction",
+          inputs: [
+            {
+              name: "callData",
+              type: "bytes",
+              internalType: "bytes",
+            },
+            {
+              name: "_module",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "canTransfer",
+          inputs: [
+            {
+              name: "_from",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_to",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_value",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "created",
+          inputs: [
+            {
+              name: "_to",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_value",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "destroyed",
+          inputs: [
+            {
+              name: "_from",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_value",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "getModules",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address[]",
+              internalType: "address[]",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getTokenBound",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "init",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "isModuleBound",
+          inputs: [
+            {
+              name: "_module",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "owner",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "removeModule",
+          inputs: [
+            {
+              name: "_module",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "renounceOwnership",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "transferOwnership",
+          inputs: [
+            {
+              name: "newOwner",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "transferred",
+          inputs: [
+            {
+              name: "_from",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_to",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_value",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "unbindToken",
+          inputs: [
+            {
+              name: "_token",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "Initialized",
+          inputs: [
+            {
+              name: "version",
+              type: "uint8",
+              indexed: false,
+              internalType: "uint8",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "ModuleAdded",
+          inputs: [
+            {
+              name: "_module",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "ModuleInteraction",
+          inputs: [
+            {
+              name: "target",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "selector",
+              type: "bytes4",
+              indexed: false,
+              internalType: "bytes4",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "ModuleRemoved",
+          inputs: [
+            {
+              name: "_module",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "OwnershipTransferred",
+          inputs: [
+            {
+              name: "previousOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "newOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "TokenBound",
+          inputs: [
+            {
+              name: "_token",
+              type: "address",
+              indexed: false,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "TokenUnbound",
+          inputs: [
+            {
+              name: "_token",
+              type: "address",
+              indexed: false,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+    TREXImplementationAuthority: {
+      address: "0x12975173b87f7595ee45dffb2ab812ece596bf84",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "referenceStatus",
+              type: "bool",
+              internalType: "bool",
+            },
+            {
+              name: "trexFactory",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "iaFactory",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addAndUseTREXVersion",
+          inputs: [
+            {
+              name: "_version",
+              type: "tuple",
+              internalType: "struct ITREXImplementationAuthority.Version",
+              components: [
+                {
+                  name: "major",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "minor",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "patch",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+              ],
+            },
+            {
+              name: "_trex",
+              type: "tuple",
+              internalType: "struct ITREXImplementationAuthority.TREXContracts",
+              components: [
+                {
+                  name: "tokenImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "ctrImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "irImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "irsImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "tirImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "mcImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+              ],
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addTREXVersion",
+          inputs: [
+            {
+              name: "_version",
+              type: "tuple",
+              internalType: "struct ITREXImplementationAuthority.Version",
+              components: [
+                {
+                  name: "major",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "minor",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "patch",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+              ],
+            },
+            {
+              name: "_trex",
+              type: "tuple",
+              internalType: "struct ITREXImplementationAuthority.TREXContracts",
+              components: [
+                {
+                  name: "tokenImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "ctrImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "irImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "irsImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "tirImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "mcImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+              ],
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "changeImplementationAuthority",
+          inputs: [
+            {
+              name: "_token",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_newImplementationAuthority",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "fetchVersion",
+          inputs: [
+            {
+              name: "_version",
+              type: "tuple",
+              internalType: "struct ITREXImplementationAuthority.Version",
+              components: [
+                {
+                  name: "major",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "minor",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "patch",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+              ],
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "getCTRImplementation",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getContracts",
+          inputs: [
+            {
+              name: "_version",
+              type: "tuple",
+              internalType: "struct ITREXImplementationAuthority.Version",
+              components: [
+                {
+                  name: "major",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "minor",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "patch",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+              ],
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "tuple",
+              internalType: "struct ITREXImplementationAuthority.TREXContracts",
+              components: [
+                {
+                  name: "tokenImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "ctrImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "irImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "irsImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "tirImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "mcImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+              ],
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getCurrentVersion",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "tuple",
+              internalType: "struct ITREXImplementationAuthority.Version",
+              components: [
+                {
+                  name: "major",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "minor",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "patch",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+              ],
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getIRImplementation",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getIRSImplementation",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getMCImplementation",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getReferenceContract",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getTIRImplementation",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getTREXFactory",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getTokenImplementation",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "isReferenceContract",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "owner",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "renounceOwnership",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setIAFactory",
+          inputs: [
+            {
+              name: "iaFactory",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setTREXFactory",
+          inputs: [
+            {
+              name: "trexFactory",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "transferOwnership",
+          inputs: [
+            {
+              name: "newOwner",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "useTREXVersion",
+          inputs: [
+            {
+              name: "_version",
+              type: "tuple",
+              internalType: "struct ITREXImplementationAuthority.Version",
+              components: [
+                {
+                  name: "major",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "minor",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "patch",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+              ],
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "IAFactorySet",
+          inputs: [
+            {
+              name: "iaFactory",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "ImplementationAuthorityChanged",
+          inputs: [
+            {
+              name: "_token",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "_newImplementationAuthority",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "ImplementationAuthoritySet",
+          inputs: [
+            {
+              name: "referenceStatus",
+              type: "bool",
+              indexed: false,
+              internalType: "bool",
+            },
+            {
+              name: "trexFactory",
+              type: "address",
+              indexed: false,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "OwnershipTransferred",
+          inputs: [
+            {
+              name: "previousOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "newOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "TREXFactorySet",
+          inputs: [
+            {
+              name: "trexFactory",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "TREXVersionAdded",
+          inputs: [
+            {
+              name: "version",
+              type: "tuple",
+              indexed: true,
+              internalType: "struct ITREXImplementationAuthority.Version",
+              components: [
+                {
+                  name: "major",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "minor",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "patch",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+              ],
+            },
+            {
+              name: "trex",
+              type: "tuple",
+              indexed: true,
+              internalType: "struct ITREXImplementationAuthority.TREXContracts",
+              components: [
+                {
+                  name: "tokenImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "ctrImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "irImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "irsImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "tirImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "mcImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+              ],
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "TREXVersionFetched",
+          inputs: [
+            {
+              name: "version",
+              type: "tuple",
+              indexed: true,
+              internalType: "struct ITREXImplementationAuthority.Version",
+              components: [
+                {
+                  name: "major",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "minor",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "patch",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+              ],
+            },
+            {
+              name: "trex",
+              type: "tuple",
+              indexed: true,
+              internalType: "struct ITREXImplementationAuthority.TREXContracts",
+              components: [
+                {
+                  name: "tokenImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "ctrImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "irImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "irsImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "tirImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "mcImplementation",
+                  type: "address",
+                  internalType: "address",
+                },
+              ],
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "VersionUpdated",
+          inputs: [
+            {
+              name: "version",
+              type: "tuple",
+              indexed: true,
+              internalType: "struct ITREXImplementationAuthority.Version",
+              components: [
+                {
+                  name: "major",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "minor",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "patch",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+              ],
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+    TREXFactory: {
+      address: "0x196dbcbb54b8ec4958c959d8949ebfe87ac2aaaf",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "implementationAuthority_",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "idFactory_",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "deployTREXSuite",
+          inputs: [
+            {
+              name: "_salt",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "_tokenDetails",
+              type: "tuple",
+              internalType: "struct ITREXFactory.TokenDetails",
+              components: [
+                {
+                  name: "owner",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "name",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "symbol",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "decimals",
+                  type: "uint8",
+                  internalType: "uint8",
+                },
+                {
+                  name: "irs",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "ONCHAINID",
+                  type: "address",
+                  internalType: "address",
+                },
+                {
+                  name: "irAgents",
+                  type: "address[]",
+                  internalType: "address[]",
+                },
+                {
+                  name: "tokenAgents",
+                  type: "address[]",
+                  internalType: "address[]",
+                },
+                {
+                  name: "complianceModules",
+                  type: "address[]",
+                  internalType: "address[]",
+                },
+                {
+                  name: "complianceSettings",
+                  type: "bytes[]",
+                  internalType: "bytes[]",
+                },
+              ],
+            },
+            {
+              name: "_claimDetails",
+              type: "tuple",
+              internalType: "struct ITREXFactory.ClaimDetails",
+              components: [
+                {
+                  name: "claimTopics",
+                  type: "uint256[]",
+                  internalType: "uint256[]",
+                },
+                {
+                  name: "issuers",
+                  type: "address[]",
+                  internalType: "address[]",
+                },
+                {
+                  name: "issuerClaims",
+                  type: "uint256[][]",
+                  internalType: "uint256[][]",
+                },
+              ],
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "getIdFactory",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getImplementationAuthority",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getToken",
+          inputs: [
+            {
+              name: "_salt",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "owner",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "recoverContractOwnership",
+          inputs: [
+            {
+              name: "_contract",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_newOwner",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "renounceOwnership",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setIdFactory",
+          inputs: [
+            {
+              name: "idFactory_",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setImplementationAuthority",
+          inputs: [
+            {
+              name: "implementationAuthority_",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "tokenDeployed",
+          inputs: [
+            {
+              name: "",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "transferOwnership",
+          inputs: [
+            {
+              name: "newOwner",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "Deployed",
+          inputs: [
+            {
+              name: "_addr",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "IdFactorySet",
+          inputs: [
+            {
+              name: "_idFactory",
+              type: "address",
+              indexed: false,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "ImplementationAuthoritySet",
+          inputs: [
+            {
+              name: "_implementationAuthority",
+              type: "address",
+              indexed: false,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "OwnershipTransferred",
+          inputs: [
+            {
+              name: "previousOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "newOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "TREXSuiteDeployed",
+          inputs: [
+            {
+              name: "_token",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "_ir",
+              type: "address",
+              indexed: false,
+              internalType: "address",
+            },
+            {
+              name: "_irs",
+              type: "address",
+              indexed: false,
+              internalType: "address",
+            },
+            {
+              name: "_tir",
+              type: "address",
+              indexed: false,
+              internalType: "address",
+            },
+            {
+              name: "_ctr",
+              type: "address",
+              indexed: false,
+              internalType: "address",
+            },
+            {
+              name: "_mc",
+              type: "address",
+              indexed: false,
+              internalType: "address",
+            },
+            {
+              name: "_salt",
+              type: "string",
+              indexed: true,
+              internalType: "string",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+    ModularComplianceProxy: {
+      address: "0x2a264f26859166c5bf3868a54593ee716aebc848",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "implementationAuthority",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "fallback",
+          stateMutability: "payable",
+        },
+        {
+          type: "function",
+          name: "getImplementationAuthority",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "setImplementationAuthority",
+          inputs: [
+            {
+              name: "_newImplementationAuthority",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "ImplementationAuthoritySet",
+          inputs: [
+            {
+              name: "_implementationAuthority",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Initialized",
+          inputs: [
+            {
+              name: "version",
+              type: "uint8",
+              indexed: false,
+              internalType: "uint8",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+    ClaimTopicsRegistryProxy: {
+      address: "0xd04ff4a75edd737a73e92b2f2274cb887d96e110",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "implementationAuthority",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "fallback",
+          stateMutability: "payable",
+        },
+        {
+          type: "function",
+          name: "getImplementationAuthority",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "setImplementationAuthority",
+          inputs: [
+            {
+              name: "_newImplementationAuthority",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "ImplementationAuthoritySet",
+          inputs: [
+            {
+              name: "_implementationAuthority",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Initialized",
+          inputs: [
+            {
+              name: "version",
+              type: "uint8",
+              indexed: false,
+              internalType: "uint8",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+    TrustedIssuersRegistryProxy: {
+      address: "0xc6b8fbf96cf7bbe45576417ec2163acecfa88ecc",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "implementationAuthority",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "fallback",
+          stateMutability: "payable",
+        },
+        {
+          type: "function",
+          name: "getImplementationAuthority",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "setImplementationAuthority",
+          inputs: [
+            {
+              name: "_newImplementationAuthority",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "ImplementationAuthoritySet",
+          inputs: [
+            {
+              name: "_implementationAuthority",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Initialized",
+          inputs: [
+            {
+              name: "version",
+              type: "uint8",
+              indexed: false,
+              internalType: "uint8",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+    IdentityRegistryStorageProxy: {
+      address: "0x29a79095352a718b3d7fe84e1f14e9f34a35598e",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "implementationAuthority",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "fallback",
+          stateMutability: "payable",
+        },
+        {
+          type: "function",
+          name: "getImplementationAuthority",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "setImplementationAuthority",
+          inputs: [
+            {
+              name: "_newImplementationAuthority",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "ImplementationAuthoritySet",
+          inputs: [
+            {
+              name: "_implementationAuthority",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Initialized",
+          inputs: [
+            {
+              name: "version",
+              type: "uint8",
+              indexed: false,
+              internalType: "uint8",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+    IdentityRegistryProxy: {
+      address: "0x6379ebd504941f50d5bfde9348b37593bd29c835",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "implementationAuthority",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_trustedIssuersRegistry",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_claimTopicsRegistry",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_identityStorage",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "fallback",
+          stateMutability: "payable",
+        },
+        {
+          type: "function",
+          name: "getImplementationAuthority",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "setImplementationAuthority",
+          inputs: [
+            {
+              name: "_newImplementationAuthority",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "ImplementationAuthoritySet",
+          inputs: [
+            {
+              name: "_implementationAuthority",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Initialized",
+          inputs: [
+            {
+              name: "version",
+              type: "uint8",
+              indexed: false,
+              internalType: "uint8",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+    IdentityProxy: {
+      address: "0x5b3120d0da5fdcba7aef87a9c3c64829c1c0d76b",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "_implementationAuthority",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "initialManagementKey",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "fallback",
+          stateMutability: "payable",
+        },
+        {
+          type: "function",
+          name: "implementationAuthority",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+    TokenProxy: {
+      address: "0x33b1b5aa9aa4da83a332f0bc5cac6a903fde5d92",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "implementationAuthority",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_identityRegistry",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_compliance",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_name",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "_symbol",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "_decimals",
+              type: "uint8",
+              internalType: "uint8",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "fallback",
+          stateMutability: "payable",
+        },
+        {
+          type: "function",
+          name: "getImplementationAuthority",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "setImplementationAuthority",
+          inputs: [
+            {
+              name: "_newImplementationAuthority",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "ImplementationAuthoritySet",
+          inputs: [
+            {
+              name: "_implementationAuthority",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Initialized",
+          inputs: [
+            {
+              name: "version",
+              type: "uint8",
+              indexed: false,
+              internalType: "uint8",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+    AgentManager: {
+      address: "0x19a1c09fe3399c4daaa2c98b936a8e460fc5eaa4",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "_token",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addAgentAdmin",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addComplianceAgent",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addFreezer",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addRecoveryAgent",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addSupplyModifier",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addTransferManager",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addWhiteListManager",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callBatchBurn",
+          inputs: [
+            {
+              name: "_userAddresses",
+              type: "address[]",
+              internalType: "address[]",
+            },
+            {
+              name: "_amounts",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callBatchForcedTransfer",
+          inputs: [
+            {
+              name: "_fromList",
+              type: "address[]",
+              internalType: "address[]",
+            },
+            {
+              name: "_toList",
+              type: "address[]",
+              internalType: "address[]",
+            },
+            {
+              name: "_amounts",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callBatchFreezePartialTokens",
+          inputs: [
+            {
+              name: "_userAddresses",
+              type: "address[]",
+              internalType: "address[]",
+            },
+            {
+              name: "_amounts",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callBatchMint",
+          inputs: [
+            {
+              name: "_toList",
+              type: "address[]",
+              internalType: "address[]",
+            },
+            {
+              name: "_amounts",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callBatchSetAddressFrozen",
+          inputs: [
+            {
+              name: "_userAddresses",
+              type: "address[]",
+              internalType: "address[]",
+            },
+            {
+              name: "_freeze",
+              type: "bool[]",
+              internalType: "bool[]",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callBatchUnfreezePartialTokens",
+          inputs: [
+            {
+              name: "_userAddresses",
+              type: "address[]",
+              internalType: "address[]",
+            },
+            {
+              name: "_amounts",
+              type: "uint256[]",
+              internalType: "uint256[]",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callBurn",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callDeleteIdentity",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callForcedTransfer",
+          inputs: [
+            {
+              name: "_from",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_to",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callFreezePartialTokens",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callMint",
+          inputs: [
+            {
+              name: "_to",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callPause",
+          inputs: [
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callRecoveryAddress",
+          inputs: [
+            {
+              name: "_lostWallet",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_newWallet",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_managerOnchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callRegisterIdentity",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+            {
+              name: "_country",
+              type: "uint16",
+              internalType: "uint16",
+            },
+            {
+              name: "_managerOnchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callSetAddressFrozen",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_freeze",
+              type: "bool",
+              internalType: "bool",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callUnfreezePartialTokens",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callUnpause",
+          inputs: [
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callUpdateCountry",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_country",
+              type: "uint16",
+              internalType: "uint16",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "callUpdateIdentity",
+          inputs: [
+            {
+              name: "_userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_identity",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+            {
+              name: "_onchainID",
+              type: "address",
+              internalType: "contract IIdentity",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "isAgentAdmin",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "isComplianceAgent",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "isFreezer",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "isRecoveryAgent",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "isSupplyModifier",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "isTransferManager",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "isWhiteListManager",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "owner",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "removeAgentAdmin",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "removeComplianceAgent",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "removeFreezer",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "removeRecoveryAgent",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "removeSupplyModifier",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "removeTransferManager",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "removeWhiteListManager",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "renounceOwnership",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "token",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "contract IToken",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "transferOwnership",
+          inputs: [
+            {
+              name: "newOwner",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "OwnershipTransferred",
+          inputs: [
+            {
+              name: "previousOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "newOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "RoleAdded",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "_role",
+              type: "string",
+              indexed: false,
+              internalType: "string",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "RoleRemoved",
+          inputs: [
+            {
+              name: "_agent",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "_role",
+              type: "string",
+              indexed: false,
+              internalType: "string",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+      deploymentFile: "run-1751719089.json",
+      deploymentScript: "Deploy.s.sol",
+    },
+  },
+} as const;
 
 export default deployedContracts satisfies GenericContractsDeclaration;

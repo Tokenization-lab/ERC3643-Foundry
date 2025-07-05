@@ -1,8 +1,8 @@
 //SPDX-License-Identifier: MIT
-pragma solidity ^0.8.19;
+pragma solidity ^0.8.17;
 
-import { Script, console } from "forge-std/Script.sol";
-import { Vm } from "forge-std/Vm.sol";
+import {Script, console} from "forge-std/Script.sol";
+import {Vm} from "forge-std/Vm.sol";
 
 contract ScaffoldETHDeploy is Script {
     error InvalidChain();
@@ -23,36 +23,19 @@ contract ScaffoldETHDeploy is Script {
     uint256 constant ANVIL_BASE_BALANCE = 10000 ether;
 
     /// @notice The deployer address for every run
-    address deployer;
-
+    // Currently pointing to anvil chain account
+    address deployer = vm.envAddress("ADMIN");
+   
     /// @notice Use this modifier on your run() function on your deploy scripts
     modifier ScaffoldEthDeployerRunner() {
-        deployer = _startBroadcast();
+        vm.startBroadcast(deployer);
         if (deployer == address(0)) {
             revert InvalidPrivateKey("Invalid private key");
         }
         _;
-        _stopBroadcast();
-        exportDeployments();
-    }
-
-    function _startBroadcast() internal returns (address) {
-        vm.startBroadcast();
-        (, address _deployer,) = vm.readCallers();
-
-        if (block.chainid == 31337 && _deployer.balance == 0) {
-            try this.anvil_setBalance(_deployer, ANVIL_BASE_BALANCE) {
-                emit AnvilSetBalance(_deployer, ANVIL_BASE_BALANCE);
-            } catch {
-                emit FailedAnvilRequest();
-            }
-        }
-        return _deployer;
-    }
-
-    function _stopBroadcast() internal {
         vm.stopBroadcast();
-    }
+        exportDeployments();
+    }   
 
     function exportDeployments() internal {
         // fetch already existing contracts

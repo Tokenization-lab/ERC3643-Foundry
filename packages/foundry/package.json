@@ -20,8 +20,12 @@
     "verify": "make verify RPC_URL=${1:-localhost}"
   },
   "dependencies": {
+    "@onchain-id/solidity": "^2.0.0",
+    "@openzeppelin/contracts": "^4.8.3",
+    "@openzeppelin/contracts-upgradeable": "^4.8.3",
     "dotenv": "~16.3.1",
     "envfile": "~6.18.0",
+    "eth-gas-reporter": "^0.2.27",
     "ethers": "~5.7.1",
     "prettier": "~2.8.8",
     "qrcode": "~1.5.3",
